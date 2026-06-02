@@ -30,3 +30,32 @@ class Visualizer:
         plt.show()
 
     
+    
+    def status_pie(self, alerts: list):
+        
+
+        counts = {}
+
+        for a in alerts:
+            status = a["status"]
+            counts[status] = counts.get(status, 0) + 1
+
+        colors = {
+            "Rescued": "steelblue",
+            "False_Alarm": "orange",
+            "Missed": "tomato"
+        }
+
+        fig, ax = plt.subplots(figsize=(7, 7))
+
+        ax.pie(
+            counts.values(),
+            labels=counts.keys(),
+            autopct="%1.1f%%",
+            startangle=140,
+            colors=[colors.get(k, "gray") for k in counts.keys()]
+        )
+
+        ax.set_title("Alert Status Distribution")
+
+        plt.show()
