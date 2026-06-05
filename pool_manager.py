@@ -44,4 +44,4 @@ def display_pools(self, pools: list) -> None:
               f"{pool['name']:<15} | "
               f"{size:<11} | "
               f"{zones_count:<5} | "
-              f"{cameras}")   
+              f"{cameras}") 
